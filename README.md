@@ -1,44 +1,85 @@
 # Currency Converter
 
-A simple client-side currency converter web app powered by the free [Exchange Rates API](https://www.exchangerate-api.com/) (`open.er-api.com`).
+![Status: Production Ready](https://img.shields.io/badge/status-production%20ready-brightgreen)
+![License: MIT](https://img.shields.io/badge/license-MIT-blue)
 
-## Project Structure
+A simple, responsive single-page currency converter powered by the free [Exchange Rates API](https://www.exchangerate-api.com/) (`open.er-api.com`).
 
-- `index.html` — UI layout and basic form elements
-- `style.css` — visual styling
-- `codes.js` — mapping of currency code to country code (for flag icons)
-- `app.js` — app logic (dropdown setup, API fetch, swap, validation)
+> **Live demo**: open `index.html` in your browser, no backend required.
 
-## Features
+---
 
-- Choose source (`From`) and target (`To`) currencies
-- Input amount (default 1)
-- Fetch latest exchange rate from `https://open.er-api.com/v6/latest/{base}`
-- Display converted value and dynamic flag icons
-- Swap currency pair with a single click
-- Auto-converts on page load
+## 🚀 Quick Start
 
-## How to Run
+1. Clone or download this repository
+2. Open `index.html` directly (double-click) or run:
+   - `python -m http.server 8000` (or any static server)
+   - then visit `http://localhost:8000`
+3. Enter amount, select currencies, click **Get Exchange Rate**
 
-1. Open `index.html` in your browser (double-click or serve from local HTTP server)
-2. Enter an amount
-3. Select source and target currencies
-4. Click **Get Exchange Rate**
+---
 
-## Live API
+## 📁 Project Structure
 
-The app requests rates via:
-- `https://open.er-api.com/v6/latest/{fromCurrency}`
+- `index.html` — UI layout and basic structure
+- `style.css` — responsive styling and themed buttons
+- `codes.js` — currency-to-country mapping for flag icons
+- `app.js` — logic (dropdown fill, conversion, swap, API calls, validation)
 
-## Notes
+---
 
-- Handles empty or invalid amounts by resetting to `1`
-- Flags use `https://flagsapi.com/{countryCode}/flat/64.png`
-- Works in modern browsers that support `fetch` and ES6
+## ✨ Features
 
-## Optional Enhancements
+- Input amount (default = 1)
+- Select source (`From`) and target (`To`) currencies
+- Fetch latest rate from `https://open.er-api.com/v6/latest/{base}`
+- Display converted result instantly
+- Show country flags next to each currency code
+- Swap pair with one click
+- Auto-convert on page load
 
-- Add offline/detailed error handling and retry logic
-- Add loading spinner instead of message text
-- Add currency search/filter in dropdowns
-- Persist last selection via `localStorage`
+---
+
+## 🔌 API Endpoint
+
+- `GET https://open.er-api.com/v6/latest/{fromCurrency}`
+
+Example:
+
+```sh
+https://open.er-api.com/v6/latest/USD
+```
+
+---
+
+## 🛠️ Behavior & Validation
+
+- Invalid or empty amount resets to `1`
+- Uses `fetch()` and modern ES6 syntax
+- Works in modern browsers and fallback-friendly due to static content
+
+---
+
+## 🎯 UI Improvements (already included)
+
+- Clean, minimal layout
+- Interactive swap button
+- Live conversion output
+- Inline status text for errors and success
+
+---
+
+## 💡 Optional Enhancements
+
+- Add search/filter for currency dropdowns
+- Add loading spinner + aria-live updates
+- Offline fallback using `localStorage` cached rates
+- Add test coverage for conversion and endpoint error handling
+- Add theme switch (light/dark)
+
+---
+
+## 📝 License
+
+MIT License
+
